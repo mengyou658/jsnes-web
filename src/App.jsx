@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GoogleAnalytics from "react-ga";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import ListPage from "./ListPage";
 import RunPage from "./RunPage";
 import config from "./config";
@@ -16,19 +16,19 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           <Route exact path="/" component={ListPage} />
           <Route exact path="/run" component={RunPage} />
           <Route exact path="/run/:rom" component={RunPage} />
           <Route path="/" render={this.recordPageview} />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 
   recordPageview = ({location}) => {
-    GoogleAnalytics.pageview(location.pathname);
+    // GoogleAnalytics.pageview(location.pathname);
     return null;
   };
 }

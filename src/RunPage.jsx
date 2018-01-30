@@ -175,6 +175,7 @@ class RunPage extends Component {
   load = () => {
     if (this.props.match.params.rom) {
       const path = config.BASE_ROM_URL + this.props.match.params.rom;
+      console.log(path)
       loadBinary(path, (err, data) => {
         if (err) {
           window.alert(`Error loading ROM: ${err.toString()}`);
